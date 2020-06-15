@@ -32,10 +32,10 @@ var getRandomNumber = function (max) {
 };
 
 var createWizardObject = function (names, secondNames, coatColors, eyesColors) {
-  var name = names[getRandomNumber(names.length)];
-  var secondName = secondNames[getRandomNumber(secondNames.length)];
-  var coatColor = coatColors[getRandomNumber(coatColors.length)];
-  var eyesColor = eyesColors[getRandomNumber(eyesColors.length)];
+  var name = names[getRandomNumber(names.length - 1)];
+  var secondName = secondNames[getRandomNumber(secondNames.length - 1)];
+  var coatColor = coatColors[getRandomNumber(coatColors.length - 1)];
+  var eyesColor = eyesColors[getRandomNumber(eyesColors.length - 1)];
 
   return {
     name: name + ' ' + secondName,
@@ -115,7 +115,7 @@ var onPopupEscPress = function (evt) {
 };
 
 var setWizardAttributesColors = function (colorsArray, attribute, hiddenInput) {
-  var color = colorsArray[getRandomNumber(colorsArray.length)];
+  var color = colorsArray[getRandomNumber(colorsArray.length - 1)];
   attribute.style.fill = color;
   hiddenInput.value = color;
 };
@@ -129,7 +129,7 @@ setupWizardEyes.addEventListener('click', function () {
 });
 
 fireball.addEventListener('click', function () {
-  var color = FIREBALL_COLORS[getRandomNumber(FIREBALL_COLORS.length)];
+  var color = FIREBALL_COLORS[getRandomNumber(FIREBALL_COLORS.length - 1)];
   fireball.style.background = color;
   fireballInput.value = color;
 });
