@@ -1,19 +1,19 @@
 'use strict';
 
 (function () {
-
-  var URL = 'https://javascript.pages.academy/code-and-magick/data';
-  var StatusCode = {
+  var URL = 'https://javascript.pages.academy/code-and-magick';
+  var DATA_URL = URL + '/data';
+  var TIMEOUT_IN_MS = 10000;
+  var StatusCodes = {
     OK: 200
   };
-  var TIMEOUT_IN_MS = 10000;
 
   var load = function (onLoad, onError) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
 
     xhr.addEventListener('load', function () {
-      if (xhr.status === StatusCode.OK) {
+      if (xhr.status === StatusCodes.OK) {
         onLoad(xhr.response);
       } else {
         onError('Статус ответа: ' + xhr.status + ' ' + xhr.statusText);
@@ -28,7 +28,7 @@
 
     xhr.timeout = TIMEOUT_IN_MS;
 
-    xhr.open('GET', URL);
+    xhr.open('GET', DATA_URL);
     xhr.send();
   };
 
@@ -37,7 +37,7 @@
     xhr.responseType = 'json';
 
     xhr.addEventListener('load', function () {
-      if (xhr.status === StatusCode.OK) {
+      if (xhr.status === StatusCodes.OK) {
         onLoad(xhr.response);
       } else {
         onError('Статус ответа: ' + xhr.status + ' ' + xhr.statusText);
@@ -47,7 +47,7 @@
       onError('Произошла ошибка соединения');
     });
 
-    xhr.open('POST', 'https://javascript.pages.academy/code-and-magick');
+    xhr.open('POST', URL);
     xhr.send(data);
   };
 
