@@ -2,11 +2,12 @@
 (function () {
 
   var setup = document.querySelector('.setup');
+  var form = setup.querySelector('.setup-wizard-form');
 
   var setupOpenButton = document.querySelector('.setup-open');
   var setupOpenIcon = setupOpenButton.querySelector('.setup-open-icon');
   var setupCloseButton = setup.querySelector('.setup-close');
-  var setupNameInput = setup.querySelector('.setup-user-name');
+  var setupNameInput = form.querySelector('.setup-user-name');
 
 
   var openPopup = function () {
@@ -54,6 +55,14 @@
       document.removeEventListener('keydown', onPopupEscPress);
     }
   });
+
+  var submitHandler = function (evt) {
+    window.backend.save(new FormData(form), function () {
+      setup.classList.add('hidden');
+    }, window.utils.errorHandler);
+    evt.preventDefault();
+  };
+  form.addEventListener('submit', submitHandler);
 
 
 })();

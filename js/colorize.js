@@ -8,11 +8,11 @@
   var getRandomColor = function (paintableОbject) {
     switch (paintableОbject) {
       case 'coat':
-        return COAT_COLORS[window.getRandomNumber(COAT_COLORS.length - 1)];
+        return COAT_COLORS[window.utils.getRandomNumber(COAT_COLORS.length - 1)];
       case 'eyes':
-        return EYES_COLORS[window.getRandomNumber(EYES_COLORS.length - 1)];
+        return EYES_COLORS[window.utils.getRandomNumber(EYES_COLORS.length - 1)];
       case 'fireball':
-        return FIREBALL_COLORS[window.getRandomNumber(FIREBALL_COLORS.length - 1)];
+        return FIREBALL_COLORS[window.utils.getRandomNumber(FIREBALL_COLORS.length - 1)];
       default:
         return '#000000';
     }
