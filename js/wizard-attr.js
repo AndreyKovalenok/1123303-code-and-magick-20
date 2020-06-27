@@ -12,11 +12,11 @@
   var fireballInput = setup.querySelector('input[name = "fireball-color"]');
 
   setupWizardCoat.addEventListener('click', function () {
-    window.colorize.setWizardAttributesColors('coat', setupWizardCoat, coatInput);
+    window.colorize.setWizardAttributesColors('coat', setupWizardCoat, coatInput, window.wizards.onCoatChange);
   });
 
   setupWizardEyes.addEventListener('click', function () {
-    window.colorize.setWizardAttributesColors('eyes', setupWizardEyes, eyesInput);
+    window.colorize.setWizardAttributesColors('eyes', setupWizardEyes, eyesInput, window.wizards.onEyesChange);
   });
 
   fireball.addEventListener('click', function () {

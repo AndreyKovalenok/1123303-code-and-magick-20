@@ -18,7 +18,7 @@
     }
   };
 
-  var setWizardAttributesColors = function (object, attribute, hiddenInput) {
+  var setWizardAttributesColors = function (object, attribute, hiddenInput, func) {
     var color = getRandomColor(object);
     if (object === 'fireball') {
       attribute.style.background = color;
@@ -26,6 +26,7 @@
     } else {
       attribute.style.fill = color;
       hiddenInput.value = color;
+      func(color);
     }
   };
 
